@@ -1,0 +1,15 @@
+{
+  "expe_name": "crc_binary_loveda",
+  "dataset_name": "LoveDA",
+  "prediction_set": "LAC",
+  "loss_name": "binary_loss",
+  "B_loss_bound": 1,
+  "lbd_lower": 0.0,
+  "lbd_upper": 1.0,
+  "n_iter": 30,
+  "n_mesh": 10,
+  "lbd_tolerance": 10e-10,
+  "alpha_risks": [0.1, 0.01],
+  "calib_test_ratio": 0.25,
+  "minimum_coverage_thresholds": [0.5, 0.75]
+}

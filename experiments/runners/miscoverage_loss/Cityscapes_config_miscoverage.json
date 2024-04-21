@@ -1,0 +1,14 @@
+{
+  "expe_name": "crc_miscoverage_cityscapes",
+  "dataset_name": "Cityscapes",
+  "prediction_set": "LAC",
+  "loss_name": "miscoverage_loss",
+  "B_loss_bound": 1,
+  "lbd_lower": 0.0,
+  "lbd_upper": 1.0,
+  "n_iter": 30,
+  "n_mesh": 10,
+  "lbd_tolerance": 10e-6,
+  "alpha_risks": [0.2, 0.1, 0.05, 0.01, 0.005],
+  "calib_test_ratio": 0.5
+}
