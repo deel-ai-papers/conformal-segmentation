@@ -1,0 +1,16 @@
+# local environment
+.venv/ 
+
+# local configuration file: can contain api keys, etc.
+.env
+
+# local downloads of python files from the mmsegmentation library: must be downloaded.
+models/
+
+# Notebooks: old notebooks used for development
+notebooks/dev
+
+# Experiments: do not include raw outputs, only scripts
+experiments/outputs
+experiments/metrics
+
