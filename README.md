@@ -10,6 +10,8 @@ Conformal segmentation applied to semantic image segmentation:
 - novel application of existing CP methods in classification: Conformal Risk Control
 - Tested on multiple datasets: Cityscapes (automotive), ADE20K (daily scenes), LoveDA (aerial imaging).
 
+An example of conformalized segmentation on the Cityscapes dataset:
+![](notebooks/paper/figures/city_seg_varisco.png)
 
 ## Get started
 This repository relies on the libraries of the [OpenMMLab codebase](https://platform.openmmlab.com/modelzoo/) (via [`mmseg`](https://mmsegmentation.readthedocs.io/en/latest/) & `mmengine`) to handle the pretrained ML models and the datasets, and `pytorch` for all other things ML.
