@@ -73,14 +73,14 @@ In the meantime, write an **issue** if you have problems.
 ### 4. Demo notebooks
 
 **TODO**:
-- Write some clean and simple [notebooks](notebooks/) to demo the approach
+- Write some clean and simple [`notebooks`](notebooks/) to demo the approach
 
 
 ### 5. Interactive web applications
 We wrote two simple applications: one to run inferences with conformalized models, the other to observe directly how the value of the parameter $\lambda \in [0,1]$ influences the heatmap.
 
-See the directory [src/app](src/app) for some examples using the [Gradio](https://www.gradio.app/guides/quickstart) library by HuggingFace.
+See the directory [`./src/app`](src/app) for some examples using the [Gradio](https://www.gradio.app/guides/quickstart) library by HuggingFace.
 
 
 ## Run the experiments
-See the [README.md](experiments/README.md) in the `./experiments` directory.
+See the [README.md](experiments/README.md) in the [`./experiments`](experiments/) directory.
