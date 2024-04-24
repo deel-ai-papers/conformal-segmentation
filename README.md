@@ -1,7 +1,7 @@
 # COSE: Conformal Segmentation
 
 This repository contains the implementation and the code run the experiments from the paper:
-> Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty
+> Luca Mossina, Joseba Dalmau and Léo Andéol (2024). Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty. *To appear*.
 
 ## Idea
 (TODO: give more details, use a picture with segmentation mask vs conformal heatmap).
