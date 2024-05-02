@@ -1,7 +1,7 @@
 # COSE: Conformal Segmentation
 
-This repository contains the implementation and the code run the experiments from the paper:
-> Luca Mossina, Joseba Dalmau and Léo Andéol (2024). _Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty_. *To appear*.
+This repository contains the implementation of the methods presented in our paper:
+> Luca Mossina, Joseba Dalmau and Léo Andéol (2024). _Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty_. To appear.
 >
 > Preprint: https://hal.science/hal-04565173
 
