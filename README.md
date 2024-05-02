@@ -1,11 +1,13 @@
 # COSE: Conformal Segmentation
 
 This repository contains the implementation and the code run the experiments from the paper:
-> Luca Mossina, Joseba Dalmau and Léo Andéol (2024). Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty. *To appear*.
+> Luca Mossina, Joseba Dalmau and Léo Andéol (2024). _Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty_. *To appear*.
+>
+> Preprint: https://hal.science/hal-04565173
+
+Citation: [see below](#citation)
 
 ## Idea
-(TODO: give more details, use a picture with segmentation mask vs conformal heatmap).
-
 Conformal segmentation applied to semantic image segmentation:
 - novel application of existing CP methods in classification: Conformal Risk Control
 - Tested on multiple datasets: Cityscapes (automotive), ADE20K (daily scenes), LoveDA (aerial imaging).
@@ -86,3 +88,13 @@ See the directory [`./src/app`](src/app) for some examples using the [Gradio](ht
 
 ## Run the experiments
 See the [README.md](experiments/README.md) in the [`./experiments`](experiments/) directory.
+
+## Citation
+```
+@misc{Mossina_2024_conformal_segmentation,
+    title = {Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty},
+    author = {Mossina, Luca and Dalmau, Joseba and And{\'e}ol, L{\'e}o},
+    year = {2024},
+    howpublished = {https://hal.science/hal-04565173},
+}
+```
