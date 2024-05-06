@@ -98,6 +98,7 @@ To run it, you must download the datasets and models we used in our experiments:
 ## Run the experiments
 See the [README.md](experiments/README.md) in the [`./experiments`](experiments/) directory.
 
+
 ## Citation
 ```
 @misc{Mossina_2024_conformal_segmentation,
@@ -107,3 +108,13 @@ See the [README.md](experiments/README.md) in the [`./experiments`](experiments/
     howpublished = {https://hal.science/hal-04565173},
 }
 ```
+
+## Acknowledgments
+We would like to thank our colleagues of the [DEEL](https://www.deel.ai/about-us)  Project (DEpendable Explainable Learning), for their invaluable feedback.
+
+We work on uncertainty, explainability, OOD detection and other topics in trustworthy and certifiable AI.
+
+Have a look at our open-source projects and publications:
+- repos: https://github.com/deel-ai
+- publications: https://www.deel.ai/publications
+
