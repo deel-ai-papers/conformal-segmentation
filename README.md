@@ -5,15 +5,21 @@ This repository contains the implementation of the methods presented in our pape
 >
 > Preprint: https://hal.science/hal-04565173
 
+We will present our work at the 2024 CVPR Workshop [SAIAD](https://sites.google.com/view/saiad-2024/accepted-papers), on 2024 June 18.
+
 Citation: [see below](#citation)
 
 ## Idea
-Conformal segmentation applied to semantic image segmentation:
-- novel application of existing CP methods in classification: Conformal Risk Control
-- Tested on multiple datasets: Cityscapes (automotive), ADE20K (daily scenes), LoveDA (aerial imaging).
+We apply Conformal Prediction to semantic image segmentation with multiple classes. Our contribution includes:
+- Novel application of [Conformal Risk Control](https://openreview.net/forum?id=33XGfHLtZg) ([arXiv](https://arxiv.org/abs/2208.02814)), by Angelopoulos, A. N., Bates, S., Fisch, A., Lei, L., & Schuster, T. (2022);
+- Novel visualization of conformal sets via heatmaps;
+- Tests on multiple datasets: Cityscapes (automotive), ADE20K (daily scenes), LoveDA (aerial imaging).
 
 An example of conformalized segmentation on the Cityscapes dataset:
-![](notebooks/paper/figures/city_seg_varisco.png)
+<!-- ![](notebooks/paper/figures/city_seg_varisco.png) -->
+
+<!-- <img src="notebooks/paper/figures/city_seg_varisco.png" width="75%"> -->
+<img src="notebooks/paper/figures/city_seg_varisco.png" style="max-width:700px;width:100%">
 
 ## Get started
 This repository relies on the libraries of the [OpenMMLab codebase](https://platform.openmmlab.com/modelzoo/) (via [`mmseg`](https://mmsegmentation.readthedocs.io/en/latest/) & `mmengine`) to handle the pretrained ML models and the datasets, and `pytorch` for all other things ML.
@@ -21,16 +27,16 @@ This repository relies on the libraries of the [OpenMMLab codebase](https://plat
 For the moment, you must either choose some existing models and datasets from `mmsegmentation` or adapt your code to this library.
 We plan on releasing a more general version that works with basic pytorch and dataloaders, with minimal requirements (softmax output).
 
-### 1. Make environment and install our code
+### 1. Make a virtual environment and install our repo
 The following steps should ensure that the library and experiments run correctly:
 
-- (A) make a virtual environment named `.venv`, as specified in the [`Makefile`](Makefile)
+1. Make a virtual environment named `.venv`, as specified in the [`Makefile`](Makefile)
     ```
     $ make venv
     $ make cose_path
     ```
 
-- (B) write project's environmental variables to a file named `.env`, which should not be commited. For example:
+2. Write the project's environmental variables to a file named `.env`, which should not be commited. For example:
     ```
     $ DATASET_NAME='Cityscapes'
     $ cd path/to/DATASET_NAME
@@ -81,9 +87,12 @@ In the meantime, write an **issue** if you have problems.
 
 
 ### 5. Interactive web applications
-We wrote two simple applications: one to run inferences with conformalized models, the other to observe directly how the value of the parameter $\lambda \in [0,1]$ influences the heatmap.
+We wrote two simple applications (see [`./src/app`](src/app)) using the [Gradio](https://www.gradio.app/guides/quickstart) library by HuggingFace.
+To run it, you must download the datasets and models we used in our experiments: [scripts/downloaders/download_mods_weights.ipynb](scripts/downloaders/download_mods_weights.ipynb).
 
-See the directory [`./src/app`](src/app) for some examples using the [Gradio](https://www.gradio.app/guides/quickstart) library by HuggingFace.
+1. [Thresholding app](src/app/app_threshold.py): observe how the value of the parameter $\lambda \in [0,1]$ influences the heatmap. This is the value we estimate with the CRC conformal algorithm.
+2. [Conformal heatmap](src/app/app_vision.py): run inferences with pre-conformalized models
+
 
 
 ## Run the experiments

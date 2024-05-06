@@ -119,7 +119,7 @@ if __name__ == "__main__":
         app.launch(
             share=args.share_url,
             debug=True,
-            # auth=("user", "confiance"),
+            # auth=("user", "password"),
             show_error=True,  # frontend errors to console
         )
     except KeyboardInterrupt:
