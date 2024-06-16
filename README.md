@@ -3,7 +3,7 @@
 [**Go to pdf**](https://openaccess.thecvf.com/content/CVPR2024W/SAIAD/html/Mossina_Conformal_Semantic_Image_Segmentation_Post-hoc_Quantification_of_Predictive_Uncertainty_CVPRW_2024_paper.html)
 
 
-Repository with the code accompanying our [paper](https://openaccess.thecvf.com/content/CVPR2024W/SAIAD/html/Mossina_Conformal_Semantic_Image_Segmentation_Post-hoc_Quantification_of_Predictive_Uncertainty_CVPRW_2024_paper.html):
+Repository with the code of our [paper](https://openaccess.thecvf.com/content/CVPR2024W/SAIAD/html/Mossina_Conformal_Semantic_Image_Segmentation_Post-hoc_Quantification_of_Predictive_Uncertainty_CVPRW_2024_paper.html):
 > Luca Mossina, Joseba Dalmau and Léo Andéol (2024). _Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty_. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, 2024, pp. 3574-3584 
 
 - We will present our work at the 2024 CVPR Workshop [SAIAD](https://sites.google.com/view/saiad-2024/accepted-papers), on 2024 June 18.
@@ -49,10 +49,9 @@ Repeat these steps for every dataset: "Cityscapes", "ADE20K", "LoveDA".
 ### 2. Alternative installation
 If the `make` commands above do not work, try to reproduce the following steps:
 
-1. Create and activate virtual environment:
+1. Create a virtual environment with the [`venv` package](https://docs.python.org/3/library/venv.html) from the Python Standard Library:
    ```
    $ python3.9 -m venv .venv
-   $ source .venv/bin/activate
    ```
 2. You must ensure that your GPU/CUDA, `pytorch` and `mmsegmentation` (and their dependencies) libraries are compatible. It can require a process of trial and error, uninstalling and reinstalling different version of the same package (e.g. `mmcv` below). For our our machines, this worked:
    ```
@@ -83,12 +82,15 @@ In the meantime, write an **issue** if you have problems.
 
 ### 4. Demo notebooks
 
-**TODO**:
-- Write some clean and simple [`notebooks`](notebooks/) to demo the approach
+**TODO**: Write some clean and simple [`notebooks`](notebooks/) to demo the approach.
+
+In the meantime, have a look at the [`experiments`](experiments) directory:
+- [`crc_calibration.py`](https://github.com/deel-ai-papers/conformal-segmentation/blob/main/experiments/crc_calibration.py) does the conformalization
+- [`crc_test_metrics.py`](https://github.com/deel-ai-papers/conformal-segmentation/blob/main/experiments/crc_test_metrics.py) evaluates the conformalized model (i.e. using the estimated $\hat{\lambda}$) on test data
 
 
 ### 5. Interactive web applications
-We wrote two simple applications (see [`./src/app`](src/app)) using the [Gradio](https://www.gradio.app/guides/quickstart) library by HuggingFace.
+We wrote two simple applications (see [`src/app`](src/app)) using the [Gradio](https://www.gradio.app/guides/quickstart) library by HuggingFace.
 To run it, you must download the datasets and models we used in our experiments: [scripts/downloaders/download_mods_weights.ipynb](scripts/downloaders/download_mods_weights.ipynb).
 
 1. [Thresholding app](src/app/app_threshold.py): observe how the value of the parameter $\lambda \in [0,1]$ influences the heatmap. This is the value we estimate with the CRC conformal algorithm.
@@ -97,7 +99,7 @@ To run it, you must download the datasets and models we used in our experiments:
 
 
 ## Run the experiments
-See the [README.md](experiments/README.md) in the [`./experiments`](experiments/) directory.
+See the [README.md](experiments/README.md) in the [`experiments`](experiments/) directory.
 
 
 ## Citation
