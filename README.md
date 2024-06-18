@@ -1,14 +1,12 @@
 # COSE: Conformal Segmentation
 
-[**Go to pdf**](https://openaccess.thecvf.com/content/CVPR2024W/SAIAD/html/Mossina_Conformal_Semantic_Image_Segmentation_Post-hoc_Quantification_of_Predictive_Uncertainty_CVPRW_2024_paper.html)
-
+- [**Go to pdf**](https://openaccess.thecvf.com/content/CVPR2024W/SAIAD/html/Mossina_Conformal_Semantic_Image_Segmentation_Post-hoc_Quantification_of_Predictive_Uncertainty_CVPRW_2024_paper.html)
+- Our lab: [DEEL](https://www.deel.ai/publications/), AI for critical systems
 
 Repository with the code of our [paper](https://openaccess.thecvf.com/content/CVPR2024W/SAIAD/html/Mossina_Conformal_Semantic_Image_Segmentation_Post-hoc_Quantification_of_Predictive_Uncertainty_CVPRW_2024_paper.html):
 > Luca Mossina, Joseba Dalmau and Léo Andéol (2024). _Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty_. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, 2024, pp. 3574-3584 
 
 - We will present our work at the 2024 CVPR Workshop [SAIAD](https://sites.google.com/view/saiad-2024/accepted-papers), on 2024 June 18.
-
-Citation: [see below](#citation)
 
 ## Idea
 We apply Conformal Prediction to semantic image segmentation with multiple classes. Our contribution includes:
