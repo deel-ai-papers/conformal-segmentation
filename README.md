@@ -17,16 +17,17 @@ An example of conformalized segmentation on the Cityscapes dataset:
 
 
 ### How it works
-The user must provide a calibration dataset of $n$ *labeled images* not used during training, from the same distribution as the test set, representative of the inputs given to the model when deployed.
+The user must provide a calibration dataset of $n$ *labeled images* not used during training, from the same distribution as the test set and representative of the inputs given to the model when deployed.
 
 1. Choose a *conformal loss* $L(\lambda) = \ell(\cdot, \cdot)$ that corresponds to your *notion of error* (see examples in [Section 4.3](https://arxiv.org/html/2405.05145v1#S4.SS3))
-2. Choose a risk level $\alpha \in (0,1)$: the smaller the value, the more conservative the prediction sets will be.
-3. Compute the optimal parameter $\hat{\lambda} := \inf\left\{ \lambda \in [0,1] : \frac{n}{n+1} \hat{R}_{n}(\lambda) + \frac{1}{n+1} \leq \alpha  \right\}$. This is a *simple optimization* problem because the empirical risk $\hat{R}_{n}(\lambda) = \frac{1}{n}\sum_{i=1}^{n}L_i(\lambda) $ is monotonic in $\lambda$.
+2. Select a risk level $\alpha \in (0,1)$: smaller values lead to more conservative prediction sets.
+3. Compute the optimal parameter $\hat{\lambda} := \inf \\{ \lambda \in [0,1] : \frac{n}{n+1} \hat{R}_{n}(\lambda) + \frac{1}{n+1} \leq \alpha \\}$.
+    - This is a simple optimization problem because the empirical risk $\hat{R}\_{n}(\lambda) = \frac{1}{n}\sum_{i=1}^{n}L_i(\lambda)$ is monotonic in $\lambda$.
     - $\hat{\lambda}$ is the smallest threshold such that the risk is controlled at the level $\alpha$ specified by the user (see [Theorem 4.1](https://arxiv.org/html/2405.05145v1#S4)).
     
 
-The parameter $\lambda$ acts as a **threshold** on the underlying softmax: for each pixel, we take all classes whose softmax score is above $1 - \lambda$, that is, we now have a multilabeled segmentation mask.
-In the heatmap, we count how many classes where included after the thresholding; the color will be more skewed towards the red whenever many classes are included.
+The parameter $\lambda$ acts as a **threshold** on the underlying softmax (see [Eq. 1](https://arxiv.org/html/2405.05145v1#S1.E1) and [Sec. 5](https://arxiv.org/html/2405.05145v1#S5)): for each pixel, we include all classes with softmax score is above $1 - \lambda$. This results in a multilabeled segmentation mask.
+In the heatmap, we count the number of classes included after thresholding. The color skews toward red as more classes are included.
 
 
 Visually, the value of the threshold ${\lambda}$ and the resulting heatmaps are connected like this:
