@@ -1,12 +1,9 @@
 # COSE: Conformal Segmentation
 
-- [**Go to pdf**](https://openaccess.thecvf.com/content/CVPR2024W/SAIAD/html/Mossina_Conformal_Semantic_Image_Segmentation_Post-hoc_Quantification_of_Predictive_Uncertainty_CVPRW_2024_paper.html)
-- Our lab: [DEEL](https://www.deel.ai/publications/), AI for critical systems
 
 Repository with the code of our [paper](https://openaccess.thecvf.com/content/CVPR2024W/SAIAD/html/Mossina_Conformal_Semantic_Image_Segmentation_Post-hoc_Quantification_of_Predictive_Uncertainty_CVPRW_2024_paper.html):
-> Luca Mossina, Joseba Dalmau and Léo Andéol (2024). _Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty_. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, 2024, pp. 3574-3584 
+> L. Mossina, J. Dalmau and L. Andéol (2024). _Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty_. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, 2024, pp. 3574-3584 
 
-- We will present our work at the 2024 CVPR Workshop [SAIAD](https://sites.google.com/view/saiad-2024/accepted-papers), on 2024 June 18.
 
 ## Idea
 We apply Conformal Prediction to semantic image segmentation with multiple classes. Our contribution includes:
@@ -15,10 +12,30 @@ We apply Conformal Prediction to semantic image segmentation with multiple class
 - Tests on multiple datasets: Cityscapes (automotive), ADE20K (daily scenes), LoveDA (aerial imaging).
 
 An example of conformalized segmentation on the Cityscapes dataset:
-<!-- ![](notebooks/paper/figures/city_seg_varisco.png) -->
 
-<!-- <img src="notebooks/paper/figures/city_seg_varisco.png" width="75%"> -->
-<img src="notebooks/paper/figures/city_seg_varisco.png" style="max-width:700px;width:100%">
+<img src="notebooks/paper/figures/city_seg_varisco.png" style="max-width:500px;width:100%">
+
+
+### How it works
+The user must provide a calibration dataset of $n$ *labeled images* not used during training, from the same distribution as the test set, representative of the inputs given to the model when deployed.
+
+1. Choose a *conformal loss* $L(\lambda) = \ell(\cdot, \cdot)$ that corresponds to your *notion of error* (see examples in [Section 4.3](https://arxiv.org/html/2405.05145v1#S4.SS3))
+2. Choose a risk level $\alpha \in (0,1)$: the smaller the value, the more conservative the prediction sets will be.
+3. Compute the optimal parameter $\hat{\lambda} := \inf\left\{ \lambda \in [0,1] : \frac{n}{n+1} \hat{R}_{n}(\lambda) + \frac{1}{n+1} \leq \alpha  \right\}$. This is a *simple optimization* problem because the empirical risk $\hat{R}_{n}(\lambda) = \frac{1}{n}\sum_{i=1}^{n}L_i(\lambda) $ is monotonic in $\lambda$.
+    - $\hat{\lambda}$ is the smallest threshold such that the risk is controlled at the level $\alpha$ specified by the user (see [Theorem 4.1](https://arxiv.org/html/2405.05145v1#S4)).
+    
+
+The parameter $\lambda$ acts as a **threshold** on the underlying softmax: for each pixel, we take all classes whose softmax score is above $1 - \lambda$, that is, we now have a multilabeled segmentation mask.
+In the heatmap, we count how many classes where included after the thresholding; the color will be more skewed towards the red whenever many classes are included.
+
+
+Visually, the value of the threshold ${\lambda}$ and the resulting heatmaps are connected like this:
+
+
+<img src="doc/figures/thresholding_cityscapes.gif" style="max-width:500px;width:100%">
+
+
+
 
 ## Get started
 This repository relies on the libraries of the [OpenMMLab codebase](https://platform.openmmlab.com/modelzoo/) (via [`mmseg`](https://mmsegmentation.readthedocs.io/en/latest/) & `mmengine`) to handle the pretrained ML models and the datasets, and `pytorch` for all other things ML.
